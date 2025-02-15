@@ -1,10 +1,11 @@
+import { useAuthContext } from "@/context/AuthContext";
 import { useState } from "react";
 // import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
 
 const useLogin = () => {
 	const [loading, setLoading] = useState(false);
-	// const { setAuthUser } = useAuthContext();
+	 const { setAuthUser } = useAuthContext();
 
 	const login = async (username: string, password: string) => {
 		try {
@@ -18,7 +19,8 @@ const useLogin = () => {
 			const data = await res.json();
 
 			if (!res.ok) throw new Error(data.error);
-			// setAuthUser(data);
+			setAuthUser(data);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		} catch (error: any) {
 			toast.error(error.message);
 		} finally {
