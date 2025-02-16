@@ -1,10 +1,13 @@
-import React from 'react'
 
-const Hero = () => {
+import { Dispatch, SetStateAction } from 'react';
+import { Button } from './button';
+import useLogout from '@/hooks/useLogout';
+
+const Hero = ({myQuizzesPage , setMyQuizzesPage}: {myQuizzesPage: boolean, setMyQuizzesPage: Dispatch<SetStateAction<boolean>> } ) => {
     const { logout } = useLogout();
   return (
-    <div>
-      <div className="min-h-screen bg-gradient-to-br  text-white flex flex-col items-center justify-center px-4 relative">
+    <div className='flex flex-col justify-center h-full p-12'>
+      <div className="h-full bg-gradient-to-br  text-white flex flex-col items-center justify-center px-4 relative">
       <div className="text-center space-y-6">
         <h1 className="text-5xl font-bold text-white">
           Welcome to <span className="text-primary text-[#540d0d]">Quizo</span>
@@ -19,6 +22,9 @@ const Hero = () => {
           
           <Button className=" " onClick={logout} variant="destructive">
             LogOut
+          </Button>
+          <Button variant='secondary' className='text-black' onClick={()=>setMyQuizzesPage(!myQuizzesPage)}>
+            {!myQuizzesPage ? 'Create Quiz' : 'My Quizzes'}
           </Button>
         </div>
       </div>

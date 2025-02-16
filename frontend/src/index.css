@@ -121,10 +121,8 @@ body {
   background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(34, 34, 34, 0.8));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #fff; /* Ensures text is visible */
+ 
+  
 }
 
 
